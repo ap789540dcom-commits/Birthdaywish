@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +15,7 @@
         <div class="class-heart">🦋</div>
         <div class="class-heart">✨</div>
         <div class="class-heart">💕</div>
+        <div class="class-heart">🌸</div>
     </div>
 
     <div class="container">
@@ -27,7 +26,7 @@
             <span>❤️</span><span>💖</span><span>❤️</span><span>💖</span>
         </div>
 
-        <button class="btn" id="start-btn" onclick="startCelebration()">Start the Celebration 👇</button>
+        <button class="btn" id="start-btn" onclick="startCelebration()">Start the Celebration 🪅</button>
 
         <div id="hidden-content" class="celebration-content">
             <h2 class="section-title">My Beautiful Radha Bitti</h2>
@@ -41,7 +40,7 @@
             </div>
 
             <div class="message-box">
-                <h3>A Special Message for You</h3>
+                <h3>A Special Message for You ❤️</h3>
                 <p>always be smiling like this my Radha Bitti</p>
                 <div class="message-hearts">💖✨❤️✨💖</div>
             </div>
@@ -57,18 +56,22 @@
             var content = document.getElementById("hidden-content");
             var btn = document.getElementById("start-btn");
             
-            // Hidden content ko show karega class add karke
+            // Show hidden content
             content.classList.add("reveal");
             
-            // Button ko click hone ke baad chupa dega (jaise video me tha)
-            btn.style.display = "none";
-            
-            // Screen ko smoothly scroll karke niche gallery par le jayega
+            // Hide the button smoothly
+            btn.style.opacity = "0";
             setTimeout(function() {
-                content.scrollIntoView({ behavior: 'smooth' });
-            }, 150);
+                btn.style.display = "none";
+            }, 400);
+            
+            // Smooth scroll to the gallery section
+            setTimeout(function() {
+                document.getElementById("hidden-content").scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         }
     </script>
 
 </body>
 </html>
+
