@@ -27,28 +27,48 @@
             <span>❤️</span><span>💖</span><span>❤️</span><span>💖</span>
         </div>
 
-        <button class="btn" onclick="document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' })">Start the Celebration 👇</button>
+        <button class="btn" id="start-btn" onclick="startCelebration()">Start the Celebration 👇</button>
 
-        <h2 class="section-title" id="gallery-section">My Beautiful Radha Bitti</h2>
+        <div id="hidden-content" class="celebration-content">
+            <h2 class="section-title">My Beautiful Radha Bitti</h2>
 
-        <div class="photo-gallery">
-            <div class="img-card"><img src="IMG-20260713-WA0001.jpg" alt="Photo 1"></div>
-            <div class="img-card"><img src="IMG-20260713-WA0002.jpg" alt="Photo 2"></div>
-            <div class="img-card"><img src="IMG-20260713-WA0003.jpg" alt="Photo 3"></div>
-            <div class="img-card"><img src="IMG-20260713-WA0004.jpg" alt="Photo 4"></div>
-            <div class="img-card"><img src="IMG-20260713-WA0005.jpg" alt="Photo 5"></div>
-        </div>
+            <div class="photo-gallery">
+                <div class="img-card"><img src="IMG-20260713-WA0001.jpg" alt="Photo 1"></div>
+                <div class="img-card"><img src="IMG-20260713-WA0002.jpg" alt="Photo 2"></div>
+                <div class="img-card"><img src="IMG-20260713-WA0003.jpg" alt="Photo 3"></div>
+                <div class="img-card"><img src="IMG-20260713-WA0004.jpg" alt="Photo 4"></div>
+                <div class="img-card"><img src="IMG-20260713-WA0005.jpg" alt="Photo 5"></div>
+            </div>
 
-        <div class="message-box">
-            <h3>A Special Message for You</h3>
-            <p>always be smiling like this my Radha Bitti</p>
-            <div class="message-hearts">💖✨❤️✨💖</div>
-        </div>
+            <div class="message-box">
+                <h3>A Special Message for You</h3>
+                <p>always be smiling like this my Radha Bitti</p>
+                <div class="message-hearts">💖✨❤️✨💖</div>
+            </div>
 
-        <div class="footer">
-            <p>© 2026 Made with ❤️ for the most amazing person in the world</p>
+            <div class="footer">
+                <p>© 2026 Made with ❤️ for the most amazing person in the world</p>
+            </div>
         </div>
     </div>
+
+    <script>
+        function startCelebration() {
+            var content = document.getElementById("hidden-content");
+            var btn = document.getElementById("start-btn");
+            
+            // Hidden content ko show karega class add karke
+            content.classList.add("reveal");
+            
+            // Button ko click hone ke baad chupa dega (jaise video me tha)
+            btn.style.display = "none";
+            
+            // Screen ko smoothly scroll karke niche gallery par le jayega
+            setTimeout(function() {
+                content.scrollIntoView({ behavior: 'smooth' });
+            }, 150);
+        }
+    </script>
 
 </body>
 </html>
