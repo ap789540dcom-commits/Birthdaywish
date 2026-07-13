@@ -1,105 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Page scrolling behaviour smooth karne ke liye */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1a001a, #4d0026);
-    color: #ffffff;
-    font-family: sans-serif;
+    background: linear-gradient(to bottom, #ffc5d3 0%, #ffeef2 40%, #c49eff 100%);
+    color: #4a1525;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    overflow-y: auto; /* Scroll chalu rakhne ke liye */
+    overflow-x: hidden;
 }
 
-.hero-section {
+.container {
+    width: 100%;
+    max-width: 500px;
     padding: 40px 20px;
+    text-align: center;
+    position: relative;
     z-index: 2;
 }
 
+/* Cursive Font Style for Main Title */
 .class-title {
-    font-size: 2.5rem;
-    color: #ff4d79;
-    text-shadow: 0 0 15px rgba(255, 77, 121, 0.6);
-    margin-bottom: 15px;
-    animation: pulse 2s infinite alternate;
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #d6336c;
+    margin-bottom: 10px;
+    font-weight: 400;
 }
 
 .class-subtitle {
-    font-size: 1.2rem;
-    color: #ffccd5;
-    max-width: 500px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 1.05rem;
+    color: #704250;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    font-weight: 300;
 }
 
-/* Photos Gallery Grid Layout */
-.photo-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+.hearts-row {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
 }
 
-.birthday-img {
-    width: 130px;
-    height: 130px;
-    border-radius: 15px; /* Elegant curved corners */
-    border: 3px solid #ff4d79;
-    box-shadow: 0 0 15px rgba(255, 77, 121, 0.4);
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-/* Jab koi photo par touch ya hover karega */
-.birthday-img:hover {
-    transform: scale(1.1) rotate(3deg); 
-}
-
+/* Styled Button */
 .btn {
-    background: #ff4d79;
+    background: linear-gradient(135deg, #ff6b8b, #ff477e);
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 12px 30px;
     font-size: 1rem;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(255, 77, 121, 0.6);
+    box-shadow: 0 4px 15px rgba(255, 71, 126, 0.4);
+    font-weight: 600;
+    margin-bottom: 40px;
+    transition: transform 0.2s ease;
 }
 
-/* Floating Hearts Background */
-.floating-hearts, .hearts-row {
-    position: absolute;
+.btn:active {
+    transform: scale(0.95);
+}
+
+.section-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #b033d6;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+/* Full Width Card Style for Images */
+.photo-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.img-card {
+    background: white;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.img-card img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Special Message Card */
+.message-box {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 24px;
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.3);
+    margin-bottom: 40px;
+}
+
+.message-box h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    font-weight: 400;
+}
+
+.message-box p {
+    font-size: 1.1rem;
+    margin: 0 0 15px 0;
+    font-weight: 300;
+}
+
+.message-hearts {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+}
+
+.footer {
+    font-size: 0.85rem;
+    color: #ffffff;
+    opacity: 0.9;
+    margin-top: 20px;
+}
+
+/* Floating Animation Background Settings */
+.floating-hearts {
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
+    z-index: 1;
 }
 
 .class-heart {
     position: absolute;
-    font-size: 2rem;
-    animation: floatUp 6s infinite linear;
+    font-size: 1.5rem;
+    animation: floatAnimation 8s infinite linear;
     opacity: 0;
+    bottom: -10%;
 }
 
-.class-heart:nth-child(1) { left: 10%; animation-delay: 0s; }
-.class-heart:nth-child(2) { left: 30%; animation-delay: 2s; animation-duration: 8s; }
-.class-heart:nth-child(3) { left: 55%; animation-delay: 1s; animation-duration: 5s; }
-.class-heart:nth-child(4) { left: 75%; animation-delay: 3s; }
-.class-heart:nth-child(5) { left: 90%; animation-delay: 5s; animation-duration: 7s; }
+/* Setting random positions and speeds for background elements */
+.class-heart:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 7s; }
+.class-heart:nth-child(2) { left: 25%; animation-delay: 3s; animation-duration: 9s; }
+.class-heart:nth-child(3) { left: 50%; animation-delay: 1s; animation-duration: 6s; }
+.class-heart:nth-child(4) { left: 75%; animation-delay: 5s; animation-duration: 10s; }
+.class-heart:nth-child(5) { left: 85%; animation-delay: 2s; animation-duration: 8s; }
 
-@keyframes floatUp {
-    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-    50% { opacity: 0.8; }
-    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.03); }
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.6);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
 }
