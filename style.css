@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-/* Page scrolling behaviour smooth karne ke liye */
 html {
     scroll-behavior: smooth;
 }
@@ -70,6 +69,21 @@ body {
     transform: scale(0.95);
 }
 
+/* Starting state of hidden content */
+.celebration-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Stylish spring pop-up effect */
+}
+
+/* Button click hone par reveal state active hogi */
+.celebration-content.reveal {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .section-title {
     font-family: 'Great Vibes', cursive;
     font-size: 2.8rem;
@@ -91,6 +105,21 @@ body {
     padding: 8px;
     border-radius: 20px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform: scale(0.9);
+    animation: popIn 0.6s forwards;
+}
+
+/* Photo cards pop-up delay animation */
+.img-card:nth-child(1) { animation-delay: 0.1s; }
+.img-card:nth-child(2) { animation-delay: 0.3s; }
+.img-card:nth-child(3) { animation-delay: 0.5s; }
+.img-card:nth-child(4) { animation-delay: 0.7s; }
+.img-card:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes popIn {
+    to {
+        transform: scale(1);
+    }
 }
 
 .img-card img {
@@ -155,7 +184,6 @@ body {
     bottom: -10%;
 }
 
-/* Setting random positions and speeds for background elements */
 .class-heart:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 7s; }
 .class-heart:nth-child(2) { left: 25%; animation-delay: 3s; animation-duration: 9s; }
 .class-heart:nth-child(3) { left: 50%; animation-delay: 1s; animation-duration: 6s; }
