@@ -9,11 +9,11 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    overflow: hidden;
+    overflow-y: auto; /* Scroll chalu rakhne ke liye */
 }
 
 .hero-section {
-    padding: 20px;
+    padding: 40px 20px;
     z-index: 2;
 }
 
@@ -30,8 +30,46 @@ body {
     color: #ffccd5;
     max-width: 500px;
     line-height: 1.6;
+    margin-bottom: 30px;
 }
 
+/* Photos Gallery Grid Layout */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.birthday-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 15px; /* Elegant curved corners */
+    border: 3px solid #ff4d79;
+    box-shadow: 0 0 15px rgba(255, 77, 121, 0.4);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Jab koi photo par touch ya hover karega */
+.birthday-img:hover {
+    transform: scale(1.1) rotate(3deg); 
+}
+
+.btn {
+    background: #ff4d79;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 77, 121, 0.6);
+}
+
+/* Floating Hearts Background */
 .floating-hearts, .hearts-row {
     position: absolute;
     width: 100%;
@@ -56,20 +94,12 @@ body {
 .class-heart:nth-child(5) { left: 90%; animation-delay: 5s; animation-duration: 7s; }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
 
 @keyframes pulse {
     0% { transform: scale(1); }
     100% { transform: scale(1.03); }
-  }
+}
